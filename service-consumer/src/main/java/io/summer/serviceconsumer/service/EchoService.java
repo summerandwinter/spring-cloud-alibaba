@@ -1,5 +1,6 @@
 package io.summer.serviceconsumer.service;
 
+import io.summer.common.vo.ApiResponse;
 import io.summer.serviceconsumer.service.impl.EchoServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,5 @@ public interface EchoService {
    * @return final words
    */
   @GetMapping("/echo/{name}")
-  String echo(@PathVariable("name") String name);
+  ApiResponse echo(@PathVariable("name") String name);
 }
