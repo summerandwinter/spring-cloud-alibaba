@@ -1,15 +1,16 @@
 package io.summer.common.enums;
 
 /**
- * @author yi.liu@bmsoft.com.cn
- * @date 2019/5/23
+ * api response status enums.
+ * @author summerandwinter
  */
 public enum ApiResponseStatus {
 
   /**
-   * success
+   * success code.
    */
   SUCCESS(0, "ok"),
+  TOO_MANY_REQUESTS(429, "Too Many Requests"),
   SERVICE_IS_BUSY(1404, "service is busy");
 
   private final int value;
@@ -18,6 +19,7 @@ public enum ApiResponseStatus {
     this.value = value;
     this.reasonPhrase = reasonPhrase;
   }
+
   public int value() {
     return this.value;
   }

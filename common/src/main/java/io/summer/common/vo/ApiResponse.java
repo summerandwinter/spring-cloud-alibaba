@@ -6,6 +6,7 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
+ * common api response entity.
  * @author summerandwinter
  */
 @Data
@@ -13,16 +14,20 @@ public class ApiResponse<T> implements Serializable {
 
   private int code;
   private long timestamp;
-  private String msg;
+  private String message;
   private T data;
 
   public ApiResponse() {
     this(ApiResponseStatus.SUCCESS);
   }
 
+  /**
+   * Instantiates ApiResponse with ApiResponseStatus.
+   * @param status ApiResponseStatus
+   */
   public ApiResponse(ApiResponseStatus status) {
     this.code = status.value();
-    this.msg = status.getReasonPhrase();
+    this.message = status.getReasonPhrase();
     this.timestamp = System.currentTimeMillis();
   }
 
